@@ -1,0 +1,54 @@
+{% extends 'cyber/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block title %}
+    <title>CyberSecurity Edu</title>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 my-5">
+            <div class="card mx-auto" style="max-width: 26rem;">
+                <h5 class="card-header text-center">Sign Up</h5>
+                <div class="card-body">
+                    <form action="{% url 'sign_up' %}" method="POST" class="my-login-validation" novalidate>
+                        {% csrf_token %}
+
+                        <p>First name*</p>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <input id="firstname" type="text" class="form-control"
+                                       autofocus required name="firstname" value="" >
+                            </div>
+                        </div>
+                        <p>Last name*</p>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <input id="lastname" type="text" class="form-control"
+                                       required name="lastname" value="" >
+                            </div>
+                        </div>
+
+                        {{ form|crispy }}
+
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-user-plus"></i> Sign Up
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a href="{% url 'sign_in' %}" class="btn btn-danger btn-block btn-md">
+                                <i class="far fa-arrow-alt-circle-left"></i> Back</a>
+                        </div>
+                        <div class="footer mt-1">
+                            Copyright &copy; 2021&#58; CyberSecurity Edu
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

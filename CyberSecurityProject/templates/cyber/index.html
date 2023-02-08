@@ -1,0 +1,97 @@
+{% extends 'cyber/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block title %}
+    CyberSecurity Edu
+{% endblock %}
+
+    {% if user %}
+        <script>
+            console.log({{ user  }})
+        </script>
+    {% endif %}
+
+
+
+{% block body %}
+    <div class="jumbotron mt-4">
+        {% if user.is_authenticated %}
+            <h1 class="display-4 text-capitalize"> Welcome {{ user.username }}</h1>
+        {% endif %}
+
+        <p class="lead">These modules have been selected for you based off your answers to our introductory survey. Click on the links in order to access your content!</p>
+        <hr class="my-4">
+
+        <div class="row ">
+            <div class="col-md mx-2">
+                <div class="card " style="width: 18rem;">
+                    <img src="{% static 'images/2_Step_Logo_Full.png' %}" class="card-img-top px-1 mt-1 " alt="Two Factor">
+                    <div class="card-body">
+                        <h5 class="card-title">Two Factor Authentication</h5>
+                        <p class="card-text">Learn about Two Factor Authentication from these modules</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="articles/A1"
+                                                       role="button">Articles</a></li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="videos/A1/1" role="button">Videos</a>
+                        </li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="#" role="button">Quiz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md mx-2">
+                <div class="card " style="width: 18rem;">
+                    <img src="{% static 'images/phishing.jpg' %}" class="card-img-top px-1 mt-1" alt="Two Factor">
+                    <div class="card-body">
+                        <h5 class="card-title">Phishing</h5>
+                        <p class="card-text">How to avoid revealing personal information to fraudulent senders</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="articles/B1"
+                                                       role="button">Articles</a></li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="videos/B1/1" role="button">Videos</a>
+                        </li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="#" role="button">Quiz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md mx-2">
+                <div class="card " style="width: 18rem;">
+                    <img src="{% static 'images/password_manager.png' %}" class="card-img-top px-1 mt-1" alt="Two Factor">
+                    <div class="card-body">
+                        <h5 class="card-title">Password Managers</h5>
+                        <p class="card-text">Learn the importance of using a password manager to handle your accounts</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="articles/C1"
+                                                       role="button">Articles</a></li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="videos/C1/1" role="button">Videos</a>
+                        </li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="#" role="button">Quiz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md mx-2">
+                <div class="card " style="width: 18rem;">
+                    <img src="{% static 'images/software-update.jpg' %}" class="card-img-top px-1 mt-1" alt="Two Factor">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Updates</h5>
+                        <p class="card-text">Cyber Security experts highly recommend installing these updates, learn why here</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="articles/D1"
+                                                       role="button">Articles</a></li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="videos/D1/1" role="button">Videos</a>
+                        </li>
+                        <li class="list-group-item"><a class="btn btn-primary btn-md" href="#" role="button">Quiz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

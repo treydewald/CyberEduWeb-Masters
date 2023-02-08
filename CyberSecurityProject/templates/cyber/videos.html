@@ -1,0 +1,45 @@
+{% extends 'cyber/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Videos {% endblock %}
+<style>
+    centered-div {
+    display: flex;
+  justify-content: center;
+}
+    ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#horizontal-list li {
+		display: inline;
+	}
+</style>
+</head>
+{% block body %}
+<body>
+<div id="content", name="content">
+<h1>Your Video</h1>
+<div class="centered-div"><p>{{featured.title}}</p>
+                <iframe width="854" height="480"
+                src="https://www.youtube.com/embed/{{featured.url}}">
+                </iframe></div>
+    <br>
+    <h3>Other Videos You May Enjoy</h3>
+<div><ul id="horizontal-list">
+        {% for Video in video_list %}
+        {% if Video.title != featured.title %}
+        <li><p style="font-size:15px">{{Video.title}}</p>
+            <a href="{{Video.pos}}"><img src="http://img.youtube.com/vi/{{Video.url}}/0.jpg" width="213" height="140"></img></a></li>
+        {% endif %}
+        {% endfor %}
+            </ul>
+</div>
+</div>
+</body>
+{% endblock %}
+</html>

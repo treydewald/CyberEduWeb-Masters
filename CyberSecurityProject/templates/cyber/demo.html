@@ -1,0 +1,23 @@
+{% extends 'cyber/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% block title %}
+    <title>CyberSecurity Edu</title>
+    <!-- Your platform (jquery) scripts. -->
+
+    <link href="https://unpkg.com/survey-jquery@1.8.45/modern.css" type="text/css" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block body %}
+    <h1>demo survey</h1>
+
+    <div id="surveyContainer"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://unpkg.com/survey-jquery@1.8.45/survey.jquery.min.js"></script>
+    <script src="{% static "js/demo.js" %}" type="text/javascript"></script>
+{% endblock %}
+
+

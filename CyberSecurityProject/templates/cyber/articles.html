@@ -1,0 +1,21 @@
+{% extends 'cyber/base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}Articles{% endblock %}
+</head>
+{% block body %}
+<body>
+<h1>Your Articles</h1>
+<ul>
+{% if article_list %}
+{% for Article in article_list %}
+    <li><a href="{{Article.url}}" target="_blank">{{Article.title}}</a></li>
+{% endfor %}
+{% endif %}
+</ul>
+</body>
+{% endblock %}
+</html>
